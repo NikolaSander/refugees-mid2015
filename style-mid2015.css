@@ -557,6 +557,8 @@ hr {
   border:none !important;
 }
 
+
+/* 
 #timeline {
   margin: 15px;
   text-align: center;
@@ -565,6 +567,19 @@ hr {
   left: 0;
   right: 0;
 }
+*/
+
+#timeline {
+  margin: 15px 15px 0;
+  text-align: center;
+}
+
+.year {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+
 main {
   position: relative;
 }
