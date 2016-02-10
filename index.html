@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>Refugees and asylum seekers around the world in mid-2015</title>
+  <meta name=description content="Refugees and asylum seekers around the world in mid-2015">
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+  <link href="style-mid2015.css" rel="stylesheet" media="all">
+  
+  <script src="circular-migration-plot.min.js"></script>
+</head>
+<body>
+  <div id=container class="container">
+
+        <div class="social-wrap">
+        <div class="social">
+          <div class="fb-like" data-send="false" data-layout="button_count" data-width="90px" data-show-faces="false" data-font="lucida grande"></div>
+          <div id="plusone-div"></div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dataviz: refugees and asylum seekers around the world in mid-2015" data-url="http://global-refugees.info/mid2015"></a>
+          <div class="clear"></div>
+        </div>
+        </div>
+
+   	<header role="banner">
+  		<h1 style="text-align:left">Refugees and asylum seekers around the world in mid-2015</h1>
+		
+		<div class="lead-in">
+		<p>Explore the <a href="http://www.unhcr.org/cgi-bin/texis/vtx/home" target="_blank">UNHCR</a>'s mid-2015 statistics on refugees and asylum seekers around the world.</p> 
+		
+		<p>Out of the almost 60 million people mentioned in the UNHCR statistics, only about 15 million are refugees who were granted asylum by the host country under the <a href="http://legal.un.org/avl/ha/prsr/prsr.html"  target="_blank">Geneva Convention</a> <b>(1)</b>.<br> More than 34 million people are <a href="http://www.unhcr.org/pages/49c3646c146.html"  target="_blank">internally displaced</a> within their own country. Out of the stock of 15 million refugees, less than one million were granted refugee status during the first six month of 2015 <b>(2)</b>.<br> The most recent flows are <a href="http://www.unhcr.org/pages/49c3646c137.html"  target="_blank">asylum seekers</a> who have lodged an application, but have not yet been granted refugee status <b>(3)</b>. In the first half of 2015, about one million people applied for asylum worldwide but only 43 percent of those were granted refugee status.</p>
+
+		<p>Click on a region to discover flows between countries. Flows/stocks with less than 2,000 people are not shown.</p>
+
+		<p>Data source: <a href="http://www.unhcr.org/56701b969.html"  target="_blank">UNHCR Mid-Year Trends 2015</a>; download the data shown below as 
+		<a href="data-mid2015/unhcr-data-mid2015.xlsx">Excel file</a>.</i></p>  
+
+		<p><font color="gray"> by <a href="http://nikolasander.com"  target="_blank">Nikola Sander</a> and <a href="http://www.metropop.eu"  target="_blank">Ramon Bauer</a></font></p>
+		</div>
+
+	<hr>
+
+	 <p> World Regions: &nbsp; 
+     	<buttonlegend style="background-color: #FF6B21">America</buttonlegend> 
+     	<buttonlegend style="background-color: #FFDB00">Africa</buttonlegend>  
+     	<buttonlegend style="background-color: #00E200">Europe</buttonlegend>   
+     	<buttonlegend style="background-color: #00E6D0">Fmr. USSR</buttonlegend> 
+     	<buttonlegend style="background-color: #00A7E2">West Asia</buttonlegend> 
+     	<buttonlegend style="background-color: #0000FF">South Asia</buttonlegend>
+    	 <buttonlegend style="background-color: #000078">South-East Asia</buttonlegend> 
+     	<buttonlegend style="background-color: #FF64DB">Stateless</buttonlegend> 
+     </p>
+
+	<div class="wrap">
+		<main role="main">
+		<nav role=navigation>
+		<div id="timeline"></div>
+
+		</nav>		
+		
+		<div id="chart"></div>
+		</main>
+	</div>
+
+  <script>
+     var labels = {
+		2016: '(1) Refugee stocks 06/2015',
+		2017: '(2) Refugee flows 01-06/2015',
+		2018: '(3) Asylum seekers 01-06/2015',
+    }
+
+
+
+
+    CircularMigrationPlot({
+      data: 'data-mid2015/refugees-mid2015.json',
+      chart:{
+        element: '#chart',
+        mylayout: {
+          threshold: 2000,
+          labelThreshold: 5000,
+		 colors: ['#FF64DB','#FF6B21','#FFDB00','#00E200','#00E6D0','#00A7E2','#0000FF','#000078']
+			  }
+      },
+      timeline: {
+        element: '#timeline',
+        formatter: function(d) {
+          return labels[d]
+        }
+      }
+	  });
+  </script>
+ 
+ 
+    <hr>
+ 	<footer role="contentinfo">
+ 		<div class="license">
+		We created this visualisation using the <a href="https://github.com/jo/circular-migration-plot"  target="_blank">custom d3.js library</a> which we originally developed together with <a href="http://null2.net">Null2 Berlin</a> for <a href="http://www.global-migration.info"  target="_blank">The Global Flow of People</a>. The code is made available under <a href="http://creativecommons.org/licenses/by/4.0/"  target="_blank">CC BY 4.0</a> 
+		</div>
+	</footer>
+	
+</div>
+	
+   <div id="fb-root"></div>
+   <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+    {"parsetags": "explicit"}
+  </script>
+  
+  <script>
+    (function() {
+    function loadScript(d,s,l,id){
+    var js,
+    fjs=d.getElementsByTagName(s)[0],
+    p=/^http:/.test(d.location)?'http':'https';
+    if(!id || !d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src=p+'://' + l;
+    fjs.parentNode.insertBefore(js,fjs);
+    }
+    }
+    loadScript(document, 'script', 'connect.facebook.net/en_US/all.js#xfbml=1', 'facebook-jssdk');
+    if (typeof gapi === 'object') {
+    gapi.plusone.render("plusone-div", {size: 'medium', annotation: 'bubble', width: '250px'});
+    }
+    loadScript(document, 'script', 'platform.twitter.com/widgets.js', 'twitter-wjs');
+    })();
+  </script>
+
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-64372038-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+  
+</body>
+</html>

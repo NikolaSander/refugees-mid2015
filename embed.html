@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>Refugees and asylum seekers around the world in mid-2015</title>
+  <meta name=description content="Refugees and asylum seekers around the world in mid-2015">
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+  <link href="style-mid2015.css" rel="stylesheet" media="all">
+
+  <script src="circular-migration-plot.min.js"></script>
+  <style>
+    body {
+      background-color: white;
+      min-width: 460px;
+    }
+    #timeline {
+      position: relative;
+      margin-top: 3ex;
+    }
+    #diagram {
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    footer {
+      position: absolute;
+      bottom: 1ex;
+      right: 0;
+    }
+    @media all and (max-width: 800px) {
+      .year label {
+        padding: 6px 7px 5px;
+        font-size: 11px;
+      }
+      svg {
+        font-size: 15px;
+      }
+      text.region {
+        font-size: 16px;
+      }
+
+    }
+    @media all and (max-width: 580px) {
+      .year label {
+        padding: 3px 6px 4px;
+        font-size: 9px;
+      }
+    }
+    @media all and (max-width: 500px) {
+      .year label {
+        padding: 2px 5px 3px;
+        font-size: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+   <p> World Regions: &nbsp; 
+      <buttonlegend style="background-color: #FF6B21">America</buttonlegend> 
+      <buttonlegend style="background-color: #FFDB00">Africa</buttonlegend>  
+      <buttonlegend style="background-color: #00E200">Europe</buttonlegend>   
+      <buttonlegend style="background-color: #00E6D0">Fmr. USSR</buttonlegend> 
+      <buttonlegend style="background-color: #00A7E2">West Asia</buttonlegend> 
+      <buttonlegend style="background-color: #0000FF">South Asia</buttonlegend>
+       <buttonlegend style="background-color: #000078">South-East Asia</buttonlegend> 
+      <buttonlegend style="background-color: #FF64DB">Stateless</buttonlegend> 
+     </p>
+
+  <nav>
+    <div id="timeline"></div>
+  </nav>
+  <div id="chart"></div>
+
+  <script>
+    var labels = {
+    2016: '(1) Refugee stocks 06/2015',
+    2017: '(2) Refugee flows 01-06/2015',
+    2018: '(3) Asylum seekers 01-06/2015',
+    }
+
+
+    CircularMigrationPlot({
+      data: 'data-mid2015/refugees-mid2015.json',
+      chart:{
+        element: '#chart',
+        mylayout: {
+          threshold: 2000,
+          labelThreshold: 5000,
+		   colors: ['#FF64DB','#FF6B21','#FFDB00','#00E200','#00E6D0','#00A7E2','#0000FF','#000078']  
+			  }
+      },
+      timeline: {
+        element: '#timeline',
+        formatter: function(d) {
+          return labels[d]
+        }
+      }
+	  });
+  </script>
+
+
+    <p><small><a href="http://global-refugees.info/mid2015" target="_blank">global-refugees.info/mid2015</a></small></p>
+ 
+    <hr>
+ 	  
+    <p><small>
+		This visualisation has been created by by <a href="http://nikolasander.com"  target="_blank">Nikola Sander</a> and <a href="http://www.metropop.eu"  target="_blank">Ramon Bauer</a> using the <a href="https://github.com/jo/circular-migration-plot"  target="_blank">custom d3.js library</a>, which we originally developed together with <a href="http://null2.net">Null2 Berlin</a> for <a href="http://www.global-migration.info"  target="_blank">The Global Flow of People</a>.</p> 
+		</small></p>
+	
+</body>
+</html>
