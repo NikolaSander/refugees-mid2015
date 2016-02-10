@@ -11,6 +11,7 @@
   <style>
     body {
       background-color: white;
+      text-align: center;
       min-width: 460px;
     }
     #timeline {
@@ -19,7 +20,7 @@
     }
     #diagram {
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 800px;
     }
     footer {
       position: absolute;
@@ -28,8 +29,8 @@
     }
     @media all and (max-width: 600px) {
       .year label {
-        padding: 6px 7px 5px;
-        font-size: 11px;
+        padding: 8px 15px 5px;
+        font-size: 13px;
       }
       svg {
         font-size: 15px;
@@ -39,16 +40,14 @@
       }
 
     }
-    @media all and (max-width: 600px) {
+    @media all and (max-width: 580px) {
       .year label {
-        padding: 3px 6px 4px;
-        font-size: 9px;
+        font-size: 11px;
       }
     }
-    @media all and (max-width: 600px) {
+    @media all and (max-width: 500px) {
       .year label {
-        padding: 2px 5px 3px;
-        font-size: 8px;
+        font-size: 9px;
       }
     }
   </style>
@@ -103,5 +102,7 @@
 		By <a href="http://nikolasander.com"  target="_blank">Nikola Sander</a> and <a href="http://www.metropop.eu"  target="_blank">Ramon Bauer</a> using a <a href="https://github.com/jo/circular-migration-plot"  target="_blank">custom d3.js library</a> developed with <a href="http://null2.net">Null2 Berlin</a> for <a href="http://www.global-migration.info"  target="_blank">The Global Flow of People</a>.
 		</p>
 	
+    var _gaq=[['_setAccount','UA-64372038-1'],['_trackPageview']];(function(a,b){var c=a.createElement(b),d=a.getElementsByTagName(b)[0];c.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";d.parentNode.insertBefore(c,d)})(document,"script");
+  
 </body>
 </html>
